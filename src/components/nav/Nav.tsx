@@ -5,10 +5,13 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import { navOptions } from "./navOptions.js";
 import NavItems from "./NavItems.js";
+import { Globe, User } from "lucide-react";
+
+//TODO
+const languageSelected = "EN";
 
 const navContainer = {
   visible: {
-    //x: 0,
     opacity: 1,
     transition: {
       x: { velocity: 100 },
@@ -16,7 +19,6 @@ const navContainer = {
     },
   },
   hidden: {
-    //x: -250,
     opacity: 0,
     transition: {
       x: { velocity: 100 },
@@ -34,9 +36,13 @@ const Nav = () => {
     setIsOpen(true);
   };
 
+  const handleSignIn = () => {
+    console.log("sign in");
+  };
+
   return (
     <div onMouseLeave={() => setIsOpen(false)}>
-      <div className="flex w-full  bg-primary py-4 pl-12">
+      <div className="flex w-full  bg-primary py-4 pl-12 ">
         <Link to="/">
           <img
             src={companyData.logo}
@@ -58,6 +64,19 @@ const Nav = () => {
               </Link>
             );
           })}
+        </div>
+        <div
+          className="flex ml-auto pr-6 items-center cursor-pointer"
+          onClick={() => handleSignIn()}
+        >
+          <div className="flex">
+            <Globe />
+            <p className="mx-1 text-white">{languageSelected}</p>
+          </div>
+          <div className="flex bg-gray-100 p-2 ml-4 rounded">
+            <User  />
+            <p className="text-black">Sign in</p>
+          </div>
         </div>
       </div>
       <AnimatePresence>

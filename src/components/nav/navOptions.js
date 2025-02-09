@@ -24,7 +24,7 @@ export const navOptions = [
       {
         id: 1,
         displayText: "First Team",
-        path: "/team/first",
+        path: "/team/firstTeam",
       },
       {
         id: 2,
@@ -36,20 +36,20 @@ export const navOptions = [
   },
   {
     id: 4,
-    displayText: "Shop",
+    displayText: "Store",
     subItems: [
       {
         id: 1,
         displayText: "Kits",
-        path: "/shop/kits",
+        path: "/store/kits",
       },
       {
         id: 2,
         displayText: "Merchandasing ",
-        path: "/shop/merchandasing",
+        path: "/store/merchandasing",
       },
     ],
-    path: "/shop",
+    path: "/store",
   },
   {
     id: 5,

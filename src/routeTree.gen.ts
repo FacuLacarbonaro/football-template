@@ -11,10 +11,22 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as TicketsImport } from './routes/tickets'
 import { Route as NewsImport } from './routes/news'
+import { Route as FixtureImport } from './routes/fixture'
 import { Route as IndexImport } from './routes/index'
+import { Route as StoreIndexImport } from './routes/store/index'
+import { Route as TeamFirstTeamImport } from './routes/team/firstTeam'
+import { Route as StoreKitsImport } from './routes/store/kits'
+import { Route as StoreCategoryImport } from './routes/store/category'
 
 // Create/Update Routes
+
+const TicketsRoute = TicketsImport.update({
+  id: '/tickets',
+  path: '/tickets',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const NewsRoute = NewsImport.update({
   id: '/news',
@@ -22,9 +34,39 @@ const NewsRoute = NewsImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const FixtureRoute = FixtureImport.update({
+  id: '/fixture',
+  path: '/fixture',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const StoreIndexRoute = StoreIndexImport.update({
+  id: '/store/',
+  path: '/store/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const TeamFirstTeamRoute = TeamFirstTeamImport.update({
+  id: '/team/firstTeam',
+  path: '/team/firstTeam',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const StoreKitsRoute = StoreKitsImport.update({
+  id: '/store/kits',
+  path: '/store/kits',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const StoreCategoryRoute = StoreCategoryImport.update({
+  id: '/store/category',
+  path: '/store/category',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -39,11 +81,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/fixture': {
+      id: '/fixture'
+      path: '/fixture'
+      fullPath: '/fixture'
+      preLoaderRoute: typeof FixtureImport
+      parentRoute: typeof rootRoute
+    }
     '/news': {
       id: '/news'
       path: '/news'
       fullPath: '/news'
       preLoaderRoute: typeof NewsImport
+      parentRoute: typeof rootRoute
+    }
+    '/tickets': {
+      id: '/tickets'
+      path: '/tickets'
+      fullPath: '/tickets'
+      preLoaderRoute: typeof TicketsImport
+      parentRoute: typeof rootRoute
+    }
+    '/store/category': {
+      id: '/store/category'
+      path: '/store/category'
+      fullPath: '/store/category'
+      preLoaderRoute: typeof StoreCategoryImport
+      parentRoute: typeof rootRoute
+    }
+    '/store/kits': {
+      id: '/store/kits'
+      path: '/store/kits'
+      fullPath: '/store/kits'
+      preLoaderRoute: typeof StoreKitsImport
+      parentRoute: typeof rootRoute
+    }
+    '/team/firstTeam': {
+      id: '/team/firstTeam'
+      path: '/team/firstTeam'
+      fullPath: '/team/firstTeam'
+      preLoaderRoute: typeof TeamFirstTeamImport
+      parentRoute: typeof rootRoute
+    }
+    '/store/': {
+      id: '/store/'
+      path: '/store'
+      fullPath: '/store'
+      preLoaderRoute: typeof StoreIndexImport
       parentRoute: typeof rootRoute
     }
   }
@@ -53,37 +137,92 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/fixture': typeof FixtureRoute
   '/news': typeof NewsRoute
+  '/tickets': typeof TicketsRoute
+  '/store/category': typeof StoreCategoryRoute
+  '/store/kits': typeof StoreKitsRoute
+  '/team/firstTeam': typeof TeamFirstTeamRoute
+  '/store': typeof StoreIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/fixture': typeof FixtureRoute
   '/news': typeof NewsRoute
+  '/tickets': typeof TicketsRoute
+  '/store/category': typeof StoreCategoryRoute
+  '/store/kits': typeof StoreKitsRoute
+  '/team/firstTeam': typeof TeamFirstTeamRoute
+  '/store': typeof StoreIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/fixture': typeof FixtureRoute
   '/news': typeof NewsRoute
+  '/tickets': typeof TicketsRoute
+  '/store/category': typeof StoreCategoryRoute
+  '/store/kits': typeof StoreKitsRoute
+  '/team/firstTeam': typeof TeamFirstTeamRoute
+  '/store/': typeof StoreIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/news'
+  fullPaths:
+    | '/'
+    | '/fixture'
+    | '/news'
+    | '/tickets'
+    | '/store/category'
+    | '/store/kits'
+    | '/team/firstTeam'
+    | '/store'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/news'
-  id: '__root__' | '/' | '/news'
+  to:
+    | '/'
+    | '/fixture'
+    | '/news'
+    | '/tickets'
+    | '/store/category'
+    | '/store/kits'
+    | '/team/firstTeam'
+    | '/store'
+  id:
+    | '__root__'
+    | '/'
+    | '/fixture'
+    | '/news'
+    | '/tickets'
+    | '/store/category'
+    | '/store/kits'
+    | '/team/firstTeam'
+    | '/store/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FixtureRoute: typeof FixtureRoute
   NewsRoute: typeof NewsRoute
+  TicketsRoute: typeof TicketsRoute
+  StoreCategoryRoute: typeof StoreCategoryRoute
+  StoreKitsRoute: typeof StoreKitsRoute
+  TeamFirstTeamRoute: typeof TeamFirstTeamRoute
+  StoreIndexRoute: typeof StoreIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FixtureRoute: FixtureRoute,
   NewsRoute: NewsRoute,
+  TicketsRoute: TicketsRoute,
+  StoreCategoryRoute: StoreCategoryRoute,
+  StoreKitsRoute: StoreKitsRoute,
+  TeamFirstTeamRoute: TeamFirstTeamRoute,
+  StoreIndexRoute: StoreIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -97,14 +236,38 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/news"
+        "/fixture",
+        "/news",
+        "/tickets",
+        "/store/category",
+        "/store/kits",
+        "/team/firstTeam",
+        "/store/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
+    "/fixture": {
+      "filePath": "fixture.tsx"
+    },
     "/news": {
       "filePath": "news.tsx"
+    },
+    "/tickets": {
+      "filePath": "tickets.tsx"
+    },
+    "/store/category": {
+      "filePath": "store/category.tsx"
+    },
+    "/store/kits": {
+      "filePath": "store/kits.tsx"
+    },
+    "/team/firstTeam": {
+      "filePath": "team/firstTeam.tsx"
+    },
+    "/store/": {
+      "filePath": "store/index.tsx"
     }
   }
 }
