@@ -82,13 +82,13 @@ const Nav = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="navbar"
+            className="navbar z-10"
             initial="hidden"
             animate={isOpen ? "visible" : "hidden"}
             exit="hidden"
             variants={navContainer}
           >
-            <div className=" absolute w-full justify-start  bg-primary flex ">
+            <div className=" absolute w-full justify-start  bg-primary flex z-10">
               <NavItems navItems={navOptions} itemSelected={itemSelected} />
             </div>
           </motion.div>
