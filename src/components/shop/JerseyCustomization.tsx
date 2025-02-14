@@ -75,7 +75,7 @@ const JerseyCustomization = () => {
   };
 
   return (
-    <div className="bg-gray-300 m-20">
+    <div className="bg-gray-300 mx-20 mt-16">
       <div className="p-10 flex ">
         <img
           src={jerseySelected.imgURL}

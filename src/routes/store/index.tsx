@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { companyData } from "../../assets/companyData";
 import { useState } from "react";
 import Home from "../../components/shop/Home/Home";
+import Kits from "../../components/shop/Kits/Kits";
 
 export const Route = createFileRoute("/store/")({
   component: RouteComponent,
@@ -65,7 +66,9 @@ function RouteComponent() {
 
       {/* Body Component */}
 
+      {/* TODO: REFACTOR */}
       {categorySelected === "Home" && <Home />}
+      {categorySelected === "Kits" && <Kits />}
     </div>
   );
 }

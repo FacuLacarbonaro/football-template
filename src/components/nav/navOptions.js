@@ -32,7 +32,7 @@ export const navOptions = [
         path: "/team/u19",
       },
     ],
-    path: "/team",
+    path: "/team/firstTeam",
   },
   {
     id: 4,
