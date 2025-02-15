@@ -27,7 +27,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
     if (index === 0) {
       return "bg-primary"; //Home color
     } else if (index === 1) {
-      return "bg-blue-500"; // Away Color
+      return "bg-blue-900"; // Away Color
     } else if (index === 2) {
       return "bg-black"; // Third color
     } else {
@@ -40,7 +40,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       {[...Array(totalItems)].map((_, index) => (
         <div
           key={index}
-          className={`w-10 h-2 cursor-pointer rounded-full z-20 ${
+          className={`w-10 h-2 bg-blue cursor-pointer rounded-full z-20 ${
             index === selectedIndex ? getColorForIndex(index) : "bg-gray-300"
           }`}
           onClick={() => setSelectedIndex(index)}
