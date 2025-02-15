@@ -1,7 +1,15 @@
+import KitSelector from "../KitSelector";
+
 const Kits = () => {
-    return ( 
-        <div>kits</div>
-     );
-}
- 
+  return (
+    <div>
+        
+        <KitSelector/>
+
+
+
+    </div>
+  );
+};
+
 export default Kits;
