@@ -38,6 +38,7 @@ const KitSelector = () => {
   return (
     <div className="flex justify-center">
       <div className="flex-col w-[50%]">
+        <h2 className="text-4xl text-center my-16 uppercase">Combine for get your best skin</h2>
         <PESClothingSelector clothing={kits} />
       </div>
     </div>

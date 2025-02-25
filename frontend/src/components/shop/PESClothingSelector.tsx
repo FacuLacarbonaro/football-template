@@ -1,5 +1,7 @@
 import { CircleArrowLeft, CircleArrowRight } from "lucide-react";
+import { AnimatePresence } from "motion/react";
 import { useState } from "react";
+import { motion } from "motion/react";
 
 interface ProgressBarProps {
   selectedIndex: number;
@@ -74,7 +76,7 @@ const PESClothingSelector = ({ clothing }: Props) => {
   };
 
   return (
-    <div className="my-20 flex flex-col items-center justify-center">
+    <div className="mb-20 flex flex-col items-center justify-center">
       {/* Contenedor principal para ambos selectores */}
       <div className="flex flex-col items-center">
         {/* Contenedor del Kit */}
@@ -95,11 +97,18 @@ const PESClothingSelector = ({ clothing }: Props) => {
               totalItems={clothing.length}
               setSelectedIndex={setSelectKit}
             />
-            <img
-              src={clothing[selectKit].kitImgURl}
-              alt={clothing[selectKit].name}
-              className="w-96 mt-[-40px]"
-            />
+            <div className="h-[384px]">
+              <AnimatePresence>
+                <motion.img
+                  src={clothing[selectKit].kitImgURl}
+                  alt={clothing[selectKit].name}
+                  className="w-96 mt-[-40px]"
+                  key={clothing[selectKit].id}
+                  initial={{ x: 30, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                />
+              </AnimatePresence>
+            </div>
           </div>
           {/* Flecha derecha del kit */}
           <CircleArrowRight
@@ -119,11 +128,19 @@ const PESClothingSelector = ({ clothing }: Props) => {
           />
           {/* Imagen y nombre del short */}
           <div className="flex flex-col items-center mx-20 ">
-            <img
-              src={clothing[selectShort].shortsImgURl}
-              alt={clothing[selectShort].name}
-              className="w-64 mt-[-30px]"
-            />
+            <div className="h-[240px]">
+
+            <AnimatePresence>
+              <motion.img
+                src={clothing[selectShort].shortsImgURl}
+                alt={clothing[selectShort].name}
+                className="w-64 mt-[-30px]"
+                key={clothing[selectShort].id}
+                initial={{ x: 30, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+              />
+            </AnimatePresence>
+            </div>
             <h2 className="text-xl text-center mt-[-20px]">
               {clothing[selectShort].name} Short
             </h2>

@@ -37,18 +37,7 @@ export const navOptions = [
   {
     id: 4,
     displayText: "Store",
-    subItems: [
-      {
-        id: 1,
-        displayText: "Kits",
-        path: "/store/kits",
-      },
-      {
-        id: 2,
-        displayText: "Merchandasing ",
-        path: "/store/merchandasing",
-      },
-    ],
+    subItems: [],
     path: "/store",
   },
   {
